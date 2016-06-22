@@ -15,7 +15,20 @@ function daysLeft() {
     var c = 24*60*60*1000;
     var diffDays = Math.round((a - b)/c);
 
-    resultString = ("<p>You have " + diffDays + " days left!");
+    if (diffDays < 0) {
+        resultString = ("<p>The time has past. Sorry!</p>");
+    } else if (diffDays === 0) {
+        resultString = ("<p>You only have today. Hurry!</p>");
+    } else if (diffDays === 1) {
+        resultString = ("<p>You have until tomorrow</p>");
+    } else if (diffDays >= 60) {
+        resultString = ("<p>You have a long time.</p>");
+    } else if(diffDays >= 0) {
+        resultString = ("<p>You have " + diffDays + " days left!");
+    }
+
+
+
 }
 
 $("#datepicker").on("change", function(){
@@ -34,6 +47,3 @@ $("#datepicker").on("change", function(){
 // condition 4:  there is NO input but someone has selected a date in the past
 // condition 5:  there is NO input and the day is tomorrow
 // condition 6:  there is NO input and the date is in the future.
-
-
-
