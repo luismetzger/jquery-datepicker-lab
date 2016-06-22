@@ -4,10 +4,14 @@
 // Our first challenge is to display the current day, month and year in an HTML string, like this:
 // <p>Today is <span id="todayDate">Oct. 6, 2015</span></p>
 
+
+
 // 1. To begin, we need a variable to reference the current time when a user loads the page.
 // Create a variable "today" as an instance of the Date object.
 
 // _____
+
+var today = new Date();
 
 // You can read all about the Date object here:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
@@ -21,6 +25,10 @@
 // Date.getMonth();
 // Date.getFullYear();
 
+var day = today.getDate();
+var month = today.getMonth();
+var year = today.getFullYear();
+
 // _____
 // _____
 // _____
@@ -31,7 +39,11 @@
 // Populate the array with three-letter string abbreviations for each month.
 
 // _____
+var months = ["Jan", "Feb", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
 // 4. Now we have everything we need to create our HTML string. Use jQuery's .html() method.
 
 // $("#todayDate").html(____);
+
+
+$('#todayDate').html(months[month] + " " + day + " " + year);
